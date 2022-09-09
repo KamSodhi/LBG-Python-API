@@ -110,3 +110,22 @@ def test_item_builder_data(self):
 ```
 
 If we test the builder and input a name of "Tool", a description of "Hammer", a price of 10.5 and an _id of 99 we can expect an object to be created that matches this format.
+
+
+#### Integration test
+
+An example integration tests is included in the project.
+
+For integration tests we can test the RESTful endpoints.
+```python
+def test_create_post_request_status(self):
+        """
+        Test to see if RESTful API returns a 201 (CREATED) status ok for a
+        Create (Post) request.  Note.  API will need to be running(!)
+        """
+        response = requests.post(BASE_URL + '/create', json = {'name': 'Tool', 'description': 'Hammer', 'price': 10.5})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+```
+
+If we test the create end point by sending a request with a method of `POST` and a path of`/create` we should expect the reponse to be... Status Code:201, Status text: Created
