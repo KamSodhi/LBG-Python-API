@@ -92,3 +92,21 @@ In a new terminal window use the command
 ~~~ bash
 behave .\features\restapp.feature
 ~~~
+
+### Example Tests
+
+#### Unit 
+
+There are unit tests included with this project, we are testing the item buiklder for the object that it returns.
+
+````Python
+def test_item_builder_data(self):
+        """
+        Test to see if item_builder returns the correctly keyed dictionary object
+        based on raw data passed to it
+        """
+        expected = {'name': 'Tool', 'description': 'Hammer', 'price': 10.5, '_id': 99}
+        self.assertEqual(item_builder("Tool", "Hammer", 10.50, 99), expected)
+```
+
+If we test the builder and input a name of "Tool", a description of "Hammer", a price of 10.5 and an _id of 99 we can expect an object to be created that matches this format.
