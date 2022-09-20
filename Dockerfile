@@ -1,13 +1,14 @@
 FROM python:latest
 
-ARG port
+#ARG port
 
 COPY . .
 
 RUN pip3 install -r "requirements.txt"
 
-ENV PORT $port
+#ENV PORT $port
 
-EXPOSE $port
+EXPOSE 8080
+#$port
 
 ENTRYPOINT ["python", "lbg.py"]
