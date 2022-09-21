@@ -4,9 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                docker build -t gcr.io/lbg7-20220905/automated-image:latest  -t gcr.io/lbg7-20220905/automated-image:$BUILD_NUMBER .
-                docker push gcr.io/lbg7-20220905/automated-image:latest
-                docker push gcr.io/lbg7-20220905/automated-image:$BUILD_NUMBER
+                docker build -t gcr.io/lbg7-20220905/automated-image:latest  -t gcr.io/lbg7-20220905/kam-automated-image:$BUILD_NUMBER .
+                docker push gcr.io/lbg7-20220905/kam-automated-image:latest
+                docker push gcr.io/lbg7-20220905/kam-automated-image:$BUILD_NUMBER
                 '''
             }
         }
@@ -18,7 +18,7 @@ pipeline {
                 docker stop auto-container
                 docker rm auto-container
 
-                docker run -d -p 8080:5000 --name auto-container gcr.io/lbg7-20220905/automated-image:latest
+                docker run -d -p 8080:5000 --name auto-container gcr.io/lbg7-20220905/kam-automated-image:latest
                 '''
             }
         }
