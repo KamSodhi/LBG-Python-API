@@ -13,7 +13,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                ssh -i '~/.ssh/id_rsa' jenkins@35.230.143.160 << EOF
+                ssh -i '~/.ssh/id_rsa' jenkins@35.246.6.64 << EOF
                 
                 docker stop auto-container
                 docker rm auto-container
