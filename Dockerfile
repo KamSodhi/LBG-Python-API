@@ -8,7 +8,8 @@ RUN pip3 install -r "requirements.txt"
 
 #ENV PORT $port
 
-EXPOSE 8080
+EXPOSE 5000 
+#8080
 #$port
 
 ENTRYPOINT ["python", "lbg.py"]
