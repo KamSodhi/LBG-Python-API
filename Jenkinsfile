@@ -18,7 +18,7 @@ pipeline {
                 docker stop auto-container
                 docker rm auto-container
 
-                docker run -d -p 5000:8080 --name auto-container kamsodhi/automated-image:latest
+                docker run -d -p 8080:5000 --name auto-container kamsodhi/automated-image:latest
                 '''
             }
         }
